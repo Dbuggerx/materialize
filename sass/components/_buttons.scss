@@ -119,11 +119,13 @@ button.btn-floating {
 
     li {
       margin-bottom: 15px;
+
+      a.btn-floating {
+        display: none;
+      }
+
     }
 
-    a.btn-floating {
-      opacity: 0;
-    }
   }
 }
 

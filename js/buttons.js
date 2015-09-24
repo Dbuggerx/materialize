@@ -27,7 +27,6 @@
     }
   });
 
-
   var openFABMenu = function (btn) {
     $this = btn;
     if ($this.hasClass('active') === false) {
@@ -36,11 +35,18 @@
         { scaleY: ".4", scaleX: ".4", translateY: "40px"},
         { duration: 0 });
 
+
       var time = 0;
       $this.find('ul .btn-floating').reverse().each(function () {
         $(this).velocity(
           { opacity: "1", scaleX: "1", scaleY: "1", translateY: "0"},
-          { duration: 80, delay: time });
+          { duration: 80, delay: time,
+            begin: function(elements) {
+              elements.forEach(function(el){
+                $(el).css('display', 'inline-block');
+              });
+            }
+          });
         time += 40;
       });
     }
@@ -53,7 +59,13 @@
     $this.find('ul .btn-floating').velocity("stop", true);
     $this.find('ul .btn-floating').velocity(
       { opacity: "0", scaleX: ".4", scaleY: ".4", translateY: "40px"},
-      { duration: 80 }
+      { duration: 80,
+        complete: function(elements) {
+          elements.forEach(function(el){
+            $(el).css('display', 'none');
+          });
+        }
+      }
     );
   };
 
