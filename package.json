@@ -31,7 +31,9 @@
     "grunt-sass": "^0.18.1",
     "grunt-text-replace": "^0.4.0",
     "node-sass": "^2.1.1",
-    "qunit": "^0.7.6"
+    "qunit": "^0.7.6",
+    "gulp-sass": "~2.0.4",
+    "gulp-concat": "~2.6.0"
   },
   "scripts": {
     "test": "grunt testem:run:default"
